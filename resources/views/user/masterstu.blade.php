@@ -53,6 +53,9 @@
                 <li>
                     <a href="{{ url('/') }}/product/cart/view"> <i class="menu-icon fa fa-shopping-cart"></i>سبد خرید </a>
                 </li>
+                <li>
+                    <a href="{{ url('/') }}/my/gallery/view"> <i class="menu-icon fa fa-picture-o"></i>گالری من</a>
+                </li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </nav>

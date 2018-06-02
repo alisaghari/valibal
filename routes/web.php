@@ -22,6 +22,7 @@ Route::get('/attend/a/{product_id}/{user_id}/{date}', 'UserController@attenda');
 Route::get('adminSecret/class/att/user/find/{product_id}', 'UserController@findPage');
 Route::post('adminSecret/class/att/find/list', 'UserController@findResult');
 
+Route::get('/my/gallery/view', 'UserController@galleryView');
 Route::post('/login/teacher', 'UserController@loginTeacher');
 Route::post('user/form/register', 'UserController@registerExec');
 Route::post('user/form/login', 'UserController@loginExec');

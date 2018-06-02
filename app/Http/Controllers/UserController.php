@@ -11,6 +11,7 @@ use App\Learn;
 use App\Notification;
 use App\Talent;
 use App\Teacher;
+use App\Usergallery;
 use Illuminate\Http\Request;
 use App\User;
 class UserController extends Controller
@@ -181,6 +182,12 @@ if(isset($filei3))
         $carts = Cart::join("Products","carts.product_id","=","Products.id")->where("Carts.user_id",$_SESSION["user_id"])->get(['carts.id AS cart_id', 'products.*']);
         $username=$_SESSION["username"];
         return view('user.cart')->with("carts",$carts)->with("username",$username);
+    }
+    public function galleryView(){
+        session_start();
+        $galleries = Usergallery::where("user_id",$_SESSION["user_id"])->get();
+        $username=$_SESSION["username"];
+        return view('user.usergallery')->with("galleries",$galleries)->with("username",$username);
     }
     public function productCartDelete($id){
         $Cart = Cart::find($id);
