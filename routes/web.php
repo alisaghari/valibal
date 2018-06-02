@@ -26,6 +26,7 @@ Route::post('/login/teacher', 'UserController@loginTeacher');
 Route::post('user/form/register', 'UserController@registerExec');
 Route::post('user/form/login', 'UserController@loginExec');
 Route::get('/products', 'ProductController@productListUser');
+Route::get('/product/details/{product_id}', 'ProductController@productDetails');
 Route::get('/product/cart/add/{id}', 'UserController@productCartAdd');
 Route::get('/product/cart/delete/{id}', 'UserController@productCartDelete');
 Route::get('/product/cart/view', 'UserController@productCartView');
@@ -34,6 +35,14 @@ Route::get('/noti', 'NotificationController@notificationListUser');
 Route::get('/teachers', 'TeacherController@teacherListUser');
 Route::get('/galleries', 'GalleryController@GalleryListUser');
 //admin
+
+Route::get('/adminSecret/user/gallery/{user_id}',"GalleryController@UserGallery");
+Route::post('/adminSecret/gallery/user/add', 'GalleryController@addUserGallery');
+Route::get('/adminSecret/gallery/user/list/{user_id}', 'GalleryController@galleryUserList');
+Route::get('/adminSecret/gallery/user/delete/{id}', 'GalleryController@deleteUserGallery');
+
+
+
 Route::get('/adminSecret', function () {
     return view('admin.index');
 });

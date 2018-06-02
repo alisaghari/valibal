@@ -58,7 +58,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>باشگاه والیبال</span></a>
+              <a href="{{ url('/') }}/adminSecret" class="site_title"><i class="fa fa-paw"></i> <span>باشگاه والیبال</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -76,16 +76,13 @@
                   <li><a><i class="fa fa-home"></i> داشبورد <span class="fa fa-chevron-down"></span></a></li>
                   <li><a><i class="fa fa-edit"></i> اعلامیه ها <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{{ url('/') }}/">مدیریت دسته بندی ها</a></li>
                       <li><a href="{{ url('/') }}/adminSecret/notification">افزودن</a></li>
                       <li><a href="{{ url('/') }}/adminSecret/notification/list">حذف</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-shopping-cart"></i> مدیریت دوره ها <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{{ url('/') }}/">مدیریت دسته بندی ها</a></li>
                       <li><a href="{{ url('/') }}//adminSecret/product">افزودن</a></li>
-                      <li><a href="{{ url('/') }}/">مدیریت برنامه کلاسی</a></li>
                       <li><a href="{{ url('/') }}/adminSecret/product/list">نمایش لیست</a></li>
                       <li><a href="{{ url('/') }}/adminSecret/product/list">حذف</a></li>
                     </ul>
@@ -94,16 +91,6 @@
                     <ul class="nav child_menu">
                       <li><a href="{{ url('/') }}/adminSecret/user/list">لیست </a></li>
                       <li><a href="{{ url('/') }}/adminSecret/user/list">حذف </a></li>
-                      <li><a href="{{ url('/') }}/">ثبت سابقه ورزشی</a></li>
-                      <li><a href="{{ url('/') }}/">مشاهده سابقه ورزشی</a></li>
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-bar-chart-o"></i>سیستم حضور و غیاب<span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="{{ url('/') }}//adminSecret/teacher">مربیان</a></li>
-                      <li><a href="{{ url('/') }}/">بازیکنان</a></li>
-                      <li><a href="{{ url('/') }}/">سابقه بازیکن</a></li>
-                      <li><a href="{{ url('/') }}/">سابقه مربی</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-clone"></i>تنظیمات <span class="fa fa-chevron-down"></span></a>
@@ -111,14 +98,10 @@
                       <li><a href="{{ url('/') }}//adminSecret/teacher">افزودن مربی</a></li>
                       <li><a href="{{ url('/') }}/adminSecret/teacher/list">حذف مربی</a></li>
                       <li><a href="{{ url('/') }}/adminSecret/teacher/list">لیست مربی</a></li>
-                      <li><a href="{{ url('/') }}/">افزودن مدیر</a></li>
-                      <li><a href="{{ url('/') }}/">حذف مدیر</a></li>
-                      <li><a href="{{ url('/') }}/">تغییر کلمه عبور</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-bug"></i> آموزش  <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{{ url('/') }}/">مدیریت دسته بندی</a></li>
                       <li><a href="{{ url('/') }}/adminSecret/learn">افزودن</a></li>
                       <li><a href="{{ url('/') }}/adminSecret/learn/list">حذف</a></li>
                     </ul>

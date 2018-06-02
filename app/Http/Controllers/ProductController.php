@@ -10,6 +10,16 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+    public function productDetails($product_id){
+        session_start();
+        if (isset($_SESSION["username"]))
+            $username=$_SESSION["username"];
+        else
+            $username="null";
+        $Programs = Program::where("product_id",$product_id)->get();
+        $Products = Product::where("id",$product_id)->get();
+        return view("user.productDetails")->with("username",$username)->with("Products",$Products)->with("Programs",$Programs);
+    }
     public function addProduct(Request $request){
         $PRODUCT = new Product();
         $PRODUCT->name = $request->input('name');

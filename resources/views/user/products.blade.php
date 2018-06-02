@@ -12,7 +12,7 @@
                         <div class="fh5co-property">
                             <figure>
                                 <img src="{{ url('/') }}/content/products/{{$product->id}}.{{$product->img}}" alt="Free Website Templates FreeHTML5.co" class="img-responsive">
-                                <a href="{{ url('/') }}/product/cart/add/{{$product->id}}" class="tag">ثبت نام</a>
+                                <a href="{{ url('/') }}/product/details/{{$product->id}}" class="tag">اطلاعات بیشتر و ثبت نام</a>
                             </figure>
                             <div class="fh5co-property-innter">
                                 <h3><a href="#">{{$product->name}}</a></h3>

@@ -12,9 +12,8 @@
         <th class="column-title">جنسیت </th>
         <th class="column-title">تاریخ تولد </th>
         <th class="column-title no-link last">تلفن ضروری</th>
-        <th class="bulk-actions" colspan="7">
-          <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
-        </th>
+        <th class="column-title"></th>
+        <th class="column-title"></th>
         <th></th>
       </tr>
     </thead>
@@ -34,6 +33,12 @@
     <td class=" last">{{$user->emergencyPhone}}</td>
     <td class="a-center ">
       <a href="{{ url('/') }}/adminSecret/user/details/{{$user->id}}" class="btn btn-primary">جزئیات</a>
+    </td>
+    <td class="a-center ">
+      <a href="{{ url('/') }}/adminSecret/user/gallery/{{$user->id}}" class="btn btn-primary">افزودن سابقه ورزشی</a>
+    </td>
+    <td class="a-center ">
+      <a href="{{ url('/') }}/adminSecret/gallery/user/list/{{$user->id}}" class="btn btn-primary">مشاهده سابقه ورزشی</a>
     </td>
   </tr>
   @endforeach
