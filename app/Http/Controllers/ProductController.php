@@ -21,6 +21,12 @@ class ProductController extends Controller
         return view("user.productDetails")->with("username",$username)->with("Products",$Products)->with("Programs",$Programs);
     }
     public function addProduct(Request $request){
+        session_start();
+        if (isset($_SESSION["admin_id"])){
+
+        }else{
+            return redirect(url("/adminSecret/login"));
+        }
         $PRODUCT = new Product();
         $PRODUCT->name = $request->input('name');
         $PRODUCT->description = $request->input('description');
@@ -51,6 +57,12 @@ class ProductController extends Controller
         return back()->withInput();
     }
     public function productList(){
+        session_start();
+        if (isset($_SESSION["admin_id"]) || isset($_SESSION["teacher_id"])){
+
+        }else{
+            return redirect(url("/adminSecret/login"));
+        }
         $products = Product::all();
         return view('admin.productList')->with('products', $products);
     }
@@ -64,15 +76,33 @@ class ProductController extends Controller
         return view('user.products')->with('products', $products)->with("username",$username);
     }
     public function deleteProduct($id){
+        session_start();
+        if (isset($_SESSION["admin_id"])){
+
+        }else{
+            return redirect(url("/adminSecret/login"));
+        }
         $Product = Product::find($id);
         $Product->delete();
         return back();
     }
     public function ProductProgram($id){
+        session_start();
+        if (isset($_SESSION["admin_id"])){
+
+        }else{
+            return redirect(url("/adminSecret/login"));
+        }
         $Programs = Program::where("product_id",$id)->get();
         return view('admin.program')->with("id",$id)->with("Programs",$Programs);
     }
     public function ProductProgramAdd(Request $request){
+        session_start();
+        if (isset($_SESSION["admin_id"])){
+
+        }else{
+            return redirect(url("/adminSecret/login"));
+        }
         $Program = Program::where("product_id",$request->input('product_id'));
         $Program->delete();
         $Program = new Program();
@@ -155,6 +185,12 @@ class ProductController extends Controller
         return back()->withInput();
     }
     public function ProductUserList($id){
+        session_start();
+        if (isset($_SESSION["admin_id"]) || isset($_SESSION["teacher_id"])){
+
+        }else{
+            return redirect(url("/adminSecret/login"));
+        }
         $users = Cart::join("Users","carts.user_id","=","Users.id")->where("Carts.product_id",$id)->get(['carts.id AS cart_id', 'users.*']);
         return view('admin.ProductUserList')->with("users",$users);
     }
@@ -162,6 +198,12 @@ class ProductController extends Controller
 
 
     public function addClass(Request $request){
+        session_start();
+        if (isset($_SESSION["admin_id"])){
+
+        }else{
+            return redirect(url("/adminSecret/login"));
+        }
         $PRODUCT = new Classweek();
         $PRODUCT->name = $request->input('name');
         $PRODUCT->teacher = $request->input('teacher');
@@ -186,6 +228,12 @@ class ProductController extends Controller
         return back()->withInput();
     }
     public function classList(){
+        session_start();
+        if (isset($_SESSION["admin_id"]) || isset($_SESSION["teacher_id"])){
+
+        }else{
+            return redirect(url("/adminSecret/login"));
+        }
         $products = Classweek::all();
         return view('admin.classList')->with('products', $products);
     }

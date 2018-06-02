@@ -8,6 +8,12 @@ use App\Teacher;
 class TeacherController extends Controller
 {
     public function addTeacher(Request $request){
+        session_start();
+        if (isset($_SESSION["admin_id"])){
+
+        }else{
+            return redirect(url("/adminSecret/login"));
+        }
         $Teacher = new Teacher();
         $Teacher->name = $request->input('name');
         $Teacher->title = $request->input('title');
@@ -29,6 +35,12 @@ class TeacherController extends Controller
         return back()->withInput();
     }
     public function teacherList(){
+        session_start();
+        if (isset($_SESSION["admin_id"])){
+
+        }else{
+            return redirect(url("/adminSecret/login"));
+        }
         $teachers = Teacher::all();
         return view('admin.teacherList')->with('teachers', $teachers);
     }
@@ -42,16 +54,33 @@ class TeacherController extends Controller
         return view('user.teachers')->with('teachers', $teachers)->with("username",$username);
     }
     public function deleteTeacher($id){
+        session_start();
+        if (isset($_SESSION["admin_id"])){
+
+        }else{
+            return redirect(url("/adminSecret/login"));
+        }
         $Teacher = Teacher::find($id);
         $Teacher->delete();
         return back();
     }
 
     public function Teachercv($id){
+        session_start();
+        if (isset($_SESSION["admin_id"])){
+
+        }else{
+            return redirect(url("/adminSecret/login"));
+        }
         return view("admin.teacherCv")->with("id",$id);
     }
     public function addTeachercv(Request $request){
+        session_start();
+        if (isset($_SESSION["admin_id"])){
 
+        }else{
+            return redirect(url("/adminSecret/login"));
+        }
         $Cvteacher = new Cvteacher();
         $Cvteacher->name = $request->input('name');
         $Cvteacher->teacher_id = $request->input('id');
@@ -75,16 +104,34 @@ class TeacherController extends Controller
         return view('admin.teacherCvList')->with('Cvteachers', $Cvteachers);
     }
     public function deleteTeacherCv($id){
+        session_start();
+        if (isset($_SESSION["admin_id"])){
+
+        }else{
+            return redirect(url("/adminSecret/login"));
+        }
         $TeacherCV = Cvteacher::find($id);
         $TeacherCV->delete();
         return back();
     }
     public function teacherCvListId($id){
+        session_start();
+        if (isset($_SESSION["admin_id"])){
+
+        }else{
+            return redirect(url("/adminSecret/login"));
+        }
         $Cvteachers = Cvteacher::where("teacher_id",$id)->get();
         return view('admin.teacherCvList')->with('Cvteachers', $Cvteachers);
     }
 
     public function deleteNotification($id){
+        session_start();
+        if (isset($_SESSION["admin_id"])){
+
+        }else{
+            return redirect(url("/adminSecret/login"));
+        }
         $notifications = Notification::find($id);
         $notifications->delete();
         return back();

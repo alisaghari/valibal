@@ -37,7 +37,7 @@
             {{ Form::open(array('url' => 'login/admin', 'method' => 'post', 'files' => true ,'class'=>'login100-form validate-form') ) }}
             <form class="login100-form validate-form">
 					<span class="login100-form-title">
-						ورود استاد
+						ورود مدیر
 					</span>
 
                 <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">

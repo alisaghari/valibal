@@ -15,6 +15,8 @@
 Route::get('/', 'UserController@index');
 Route::get('/ContactUs', 'UserController@ContactUs');
 Route::get('/tlogin', 'UserController@tlogin');
+Route::get('/adminSecret/login', 'AdminController@login');
+Route::post('/login/admin', 'AdminController@loginAdmin');
 Route::get('/teacher/attend/{product_id}', 'UserController@attend');
 Route::get('/attend/p/{product_id}/{user_id}/{date}', 'UserController@attendp');
 Route::get('/attend/a/{product_id}/{user_id}/{date}', 'UserController@attenda');
@@ -50,6 +52,12 @@ Route::get('/adminSecret', function () {
 Route::get('adminSecret/user/list', 'AdminController@userList');
 Route::get('adminSecret/user/details/{id}', 'AdminController@userDetails');
 Route::get('/adminSecret/product', function () {
+    session_start();
+    if (isset($_SESSION["admin_id"])){
+
+    }else{
+        return redirect(url("/adminSecret/login"));
+    }
     return view('admin.product');
 });
 Route::post('adminSecret/product/add', 'ProductController@addProduct');
@@ -60,6 +68,12 @@ Route::get('adminSecret/product/delete/{id}', 'ProductController@deleteProduct')
 Route::get('adminSecret/product/program/{id}', 'ProductController@ProductProgram');
 Route::post('adminSecret/product/program/add', 'ProductController@ProductProgramAdd');
 Route::get('/adminSecret/class', function () {
+    session_start();
+    if (isset($_SESSION["admin_id"])){
+
+    }else{
+        return redirect(url("/adminSecret/login"));
+    }
     return view('admin.class');
 });
 Route::post('adminSecret/class/add', 'ProductController@addClass');
@@ -67,6 +81,12 @@ Route::get('adminSecret/class/list', 'ProductController@classList');
 Route::get('adminSecret/class/delete/{id}', 'ProductController@deleteClass');
 
 Route::get('/adminSecret/teacher', function () {
+    session_start();
+    if (isset($_SESSION["admin_id"])){
+
+    }else{
+        return redirect(url("/adminSecret/login"));
+    }
     return view('admin.teacher');
 });
 Route::post('adminSecret/teacher/add', 'TeacherController@addTeacher');
@@ -79,6 +99,12 @@ Route::get('adminSecret/teachercv/list/{id}', 'TeacherController@teacherCvListId
 Route::get('adminSecret/teacher/cv/delete/{id}', 'TeacherController@deleteTeacherCv');
 
 Route::get('/adminSecret/talent', function () {
+    session_start();
+    if (isset($_SESSION["admin_id"])){
+
+    }else{
+        return redirect(url("/adminSecret/login"));
+    }
     return view('admin.talent');
 });
 Route::post('adminSecret/talent/add', 'TalentController@addTalent');
@@ -86,6 +112,12 @@ Route::get('adminSecret/talent/list', 'TalentController@talentList');
 Route::get('adminSecret/talent/delete/{id}', 'TalentController@deleteTalent');
 
 Route::get('/adminSecret/gallery', function () {
+    session_start();
+    if (isset($_SESSION["admin_id"])){
+
+    }else{
+        return redirect(url("/adminSecret/login"));
+    }
     return view('admin.gallery');
 });
 Route::post('adminSecret/gallery/add', 'GalleryController@addGallery');
@@ -93,6 +125,12 @@ Route::get('adminSecret/gallery/list', 'GalleryController@galleryList');
 Route::get('adminSecret/gallery/delete/{id}', 'GalleryController@deleteGallery');
 
 Route::get('/adminSecret/notification', function () {
+    session_start();
+    if (isset($_SESSION["admin_id"])){
+
+    }else{
+        return redirect(url("/adminSecret/login"));
+    }
     return view('admin.notification');
 });
 Route::post('adminSecret/notification/add', 'notificationController@addNotification');
@@ -100,6 +138,12 @@ Route::get('adminSecret/notification/list', 'notificationController@notification
 Route::get('adminSecret/notification/delete/{id}', 'notificationController@deleteNotification');
 
 Route::get('/adminSecret/learn', function () {
+    session_start();
+    if (isset($_SESSION["admin_id"])){
+
+    }else{
+        return redirect(url("/adminSecret/login"));
+    }
     return view('admin.learn');
 });
 

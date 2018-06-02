@@ -7,6 +7,12 @@ use App\Learn;
 class LearnController extends Controller
 {
     public function addLearn(Request $request){
+        session_start();
+        if (isset($_SESSION["admin_id"])){
+
+        }else{
+            return redirect(url("/adminSecret/login"));
+        }
         $LEARN = new Learn();
         $LEARN->name = $request->input('name');
         $LEARN->description = $request->input('description');
@@ -49,6 +55,12 @@ class LearnController extends Controller
         return back()->withInput();
     }
     public function learnList(){
+        session_start();
+        if (isset($_SESSION["admin_id"])){
+
+        }else{
+            return redirect(url("/adminSecret/login"));
+        }
         $learns = Learn::all();
         return view('admin.learnList')->with('learns', $learns);
     }
@@ -62,6 +74,12 @@ class LearnController extends Controller
         return view('user.learns')->with('learns', $learns)->with("username",$username);
     }
     public function deletelearn($id){
+        session_start();
+        if (isset($_SESSION["admin_id"])){
+
+        }else{
+            return redirect(url("/adminSecret/login"));
+        }
         $learn = Learn::find($id);
         $learn->delete();
         return back();

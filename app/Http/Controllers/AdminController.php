@@ -8,16 +8,17 @@ use App\User;
 class AdminController extends Controller
 {
     public function login(){
-        return view("admin.tlogin");
+        return view("admin.login");
     }
     public function loginAdmin(Request $request){
         session_start();
-        $users=Admin::where("name", $request->input('username'))->where("password", $request->input('password'))->get();
+        $users=Admin::where("username", $request->input('username'))->where("password", $request->input('password'))->get();
         foreach ($users as $user) {
             $_SESSION["admin_id"] = $user["id"];
             $_SESSION["username"] = $user["username"] ;
+            return redirect(url("adminSecret/product"));
         }
-        return back();
+
     }
     public function userList()
     {

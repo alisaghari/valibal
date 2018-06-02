@@ -26,6 +26,12 @@ class GalleryController extends Controller
         return back()->withInput();
     }
     public function galleryList(){
+        session_start();
+        if (isset($_SESSION["admin_id"])){
+
+        }else{
+            return redirect(url("/adminSecret/login"));
+        }
         $galleries = Gallery::all();
         return view('admin.galleryList')->with('galleries', $galleries);
     }
@@ -39,6 +45,12 @@ class GalleryController extends Controller
         return view('user.gallery')->with('galleries', $galleries)->with("username",$username);
     }
     public function deleteGallery($id){
+        session_start();
+        if (isset($_SESSION["admin_id"])){
+
+        }else{
+            return redirect(url("/adminSecret/login"));
+        }
         $galleries = Gallery::find($id);
         $galleries->delete();
         return back();
@@ -48,6 +60,12 @@ class GalleryController extends Controller
             return view("admin.galleryUser")->with("user_id",$user_id);
     }
     public function addUserGallery(Request $request){
+        session_start();
+        if (isset($_SESSION["admin_id"])){
+
+        }else{
+            return redirect(url("/adminSecret/login"));
+        }
         $LEARN = new Usergallery();
         $LEARN->name = $request->input('name');
         $LEARN->description = $request->input('description');
@@ -89,10 +107,22 @@ class GalleryController extends Controller
         return back()->withInput();
     }
     public function galleryUserList($user_id){
+        session_start();
+        if (isset($_SESSION["admin_id"])){
+
+        }else{
+            return redirect(url("/adminSecret/login"));
+        }
         $galleries = Usergallery::where("user_id",$user_id)->get();
         return view('admin.galleryUserList')->with('galleries', $galleries);
     }
     public function deleteUserGallery($id){
+        session_start();
+        if (isset($_SESSION["admin_id"])){
+
+        }else{
+            return redirect(url("/adminSecret/login"));
+        }
         $learn = Usergallery::find($id);
         $learn->delete();
         return back();

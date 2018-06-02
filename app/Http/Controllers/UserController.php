@@ -40,10 +40,17 @@ class UserController extends Controller
         foreach ($users as $user) {
             $_SESSION["teacher_id"] = $user["id"];
             $_SESSION["username"] = $user["name"] ;
+            return redirect(url("/adminSecret/product/list"));
         }
         return back();
     }
     public function attend($product_id){
+        session_start();
+        if (isset($_SESSION["admin_id"]) || isset($_SESSION["teacher_id"])){
+
+        }else{
+            return redirect(url("/adminSecret/login"));
+        }
         $users = Cart::join("users","carts.user_id","=","users.id")->where("Carts.product_id",$product_id)->get(['users.id AS user_id']);
         return view("admin.attendances")->with('users', $users)->with("product_id",$product_id);
     }

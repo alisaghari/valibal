@@ -7,6 +7,12 @@ use App\Notification;
 class NotificationController extends Controller
 {
     public function addNotification(Request $request){
+        session_start();
+        if (isset($_SESSION["admin_id"])){
+
+        }else{
+            return redirect(url("/adminSecret/login"));
+        }
         $Notification = new Notification();
         $Notification->name = $request->input('name');
         $Notification->description = $request->input('description');
@@ -26,6 +32,12 @@ class NotificationController extends Controller
         return back()->withInput();
     }
     public function notificationList(){
+        session_start();
+        if (isset($_SESSION["admin_id"])){
+
+        }else{
+            return redirect(url("/adminSecret/login"));
+        }
         $notifications = Notification::all();
         return view('admin.notificationList')->with('notifications', $notifications);
     }
@@ -39,6 +51,12 @@ class NotificationController extends Controller
         return view('user.notifications')->with('notifications', $notifications)->with("username",$username);
     }
     public function deleteNotification($id){
+        session_start();
+        if (isset($_SESSION["admin_id"])){
+
+        }else{
+            return redirect(url("/adminSecret/login"));
+        }
         $notifications = Notification::find($id);
         $notifications->delete();
         return back();
