@@ -19,7 +19,7 @@
                                 <div class="price-status">
                                     <span class="price">{{number_format($product->price)}}  ریال  </span>
                                 </div>
-                                <p>{{$product->description}} </p>
+                                <p>{!!  $product->description !!} </p>
                             </div>
                             <p class="fh5co-property-specification">
                                 <span style="direction: rtl"><strong>مربی</strong> {{$product->teacher}}</span>      <span style="direction: rtl">همیشه <strong style="direction: rtl">زمان ثبت نام</strong>   </span>

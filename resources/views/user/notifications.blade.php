@@ -20,7 +20,7 @@
                             </figure>
                             <div class="fh5co-property-innter">
                                 <h3><a href="#">{{$notification->name}}</a></h3>
-                                <p>{{$notification->description}} </p>
+                                <p>{!!  $notification->description!!}</p>
                             </div>
                         </div>
                     </div>

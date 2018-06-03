@@ -181,7 +181,7 @@
                     </div>
                     <div class="details col-md-6">
                         <h3 class="product-title">{{$product->name}}</h3>
-                        <p class="product-description">{{$product->description}}</p>
+                        <p class="product-description">{!!  $product->description!!}</p>
                         <h4 class="price">هزینه دوره : <span>{{number_format($product->price)}} ریال </span></h4>
                         <div class="action">
                             <a href="{{ url('/') }}/product/cart/add/{{$product->id}}" class="add-to-cart btn btn-default" type="button">افزودن به سبد خرید</a>

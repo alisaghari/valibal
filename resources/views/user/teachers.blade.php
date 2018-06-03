@@ -19,7 +19,7 @@
                             <img src="{{ url('/') }}/content/teachers/{{$teacher->id}}.{{$teacher->img}}" alt="Free Website Template by FreeHTML5.co">
                         </figure>
                         <h3>{{$teacher->name}}</h3>
-                        <p>{{$teacher->description}}</p>
+                        <p>{!!  $teacher->description!!}</p>
                         <p><a href="#" class="btn btn-primary btn-outline">رزومه من</a></p>
                     </div>
                 </div>

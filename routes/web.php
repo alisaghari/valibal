@@ -47,7 +47,13 @@ Route::get('/adminSecret/gallery/user/delete/{id}', 'GalleryController@deleteUse
 
 
 Route::get('/adminSecret', function () {
-    return view('admin.index');
+    session_start();
+    if (isset($_SESSION["admin_id"])){
+
+    }else{
+        return redirect(url("/adminSecret/login"));
+    }
+    return view('admin.product');
 });
 Route::get('adminSecret/user/list', 'AdminController@userList');
 Route::get('adminSecret/user/details/{id}', 'AdminController@userDetails');

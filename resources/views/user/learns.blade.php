@@ -33,7 +33,7 @@
                             </figure>
                             <div class="fh5co-property-innter">
                                 <h3><a href="#">{{$learn->name}}</a></h3>
-                                <p>{{$learn->description}} </p>
+                                <p>{!! $learn->description !!} </p>
                             </div>
                         </div>
                     </div>
