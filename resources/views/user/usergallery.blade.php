@@ -23,7 +23,7 @@
                         <div class="fh5co-property">
                             <figure>
                                 @if($gallery->ext!="mp4")
-                                    <img src="{{ url('/') }}/content/learns/{{$gallery->id}}.{{$gallery->ext}}" alt="Free Website Templates FreeHTML5.co" class="img-responsive">
+                                    <img src="{{ url('/') }}/content/usergallery/{{$gallery->id}}.{{$gallery->ext}}" alt="Free Website Templates FreeHTML5.co" class="img-responsive">
                                 @else
                                     <style>
                                         .video-js .vjs-tech {

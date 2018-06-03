@@ -52,7 +52,7 @@
                                         <tr>
                                             <td><label>نام</label></td>
                                             <td>
-                                                {{ Form::text('name','',['class' => 'form-control']) }}
+                                                {{ Form::text('name','',['class' => 'form-control', 'required']) }}
                                             </td>
                                         </tr>
                                     </table>
@@ -74,7 +74,7 @@
                                         <tr>
                                             <td><label>نام خانوادگی</label></td>
                                             <td>
-                                                {{ Form::text('family','',['class' => 'form-control']) }}
+                                                {{ Form::text('family','',['class' => 'form-control', 'required']) }}
                                             </td>
                                         </tr>
                                     </table>
@@ -96,7 +96,7 @@
                                         <tr>
                                             <td><label>نام پدر</label></td>
                                             <td>
-                                                {{ Form::text('father','',['class' => 'form-control']) }}
+                                                {{ Form::text('father','',['class' => 'form-control', 'required']) }}
                                             </td>
                                         </tr>
                                     </table>
@@ -108,7 +108,7 @@
                                         <tr>
                                             <td><label>همراه پدر</label></td>
                                             <td>
-                                                {{ Form::tel('fatherPhone','',['class' => 'form-control']) }}
+                                                {{ Form::tel('fatherPhone','',['class' => 'form-control', 'required']) }}
                                             </td>
                                         </tr>
                                     </table>
@@ -118,7 +118,7 @@
                                         <tr>
                                             <td><label>شماره ملی</label></td>
                                             <td>
-                                                {{ Form::text('nationalCode','',['class' => 'form-control']) }}
+                                                {{ Form::text('nationalCode','',['class' => 'form-control', 'required']) }}
                                             </td>
                                         </tr>
                                     </table>
@@ -130,7 +130,7 @@
                                         <tr>
                                             <td><label>شماره تلفن ضروری</label></td>
                                             <td>
-                                                {{ Form::tel('emergencyPhone','',['class' => 'form-control']) }}
+                                                {{ Form::tel('emergencyPhone','',['class' => 'form-control', 'required']) }}
                                             </td>
                                         </tr>
                                     </table>
@@ -140,7 +140,7 @@
                                         <tr>
                                             <td><label>تاریخ تولد</label></td>
                                             <td>
-                                                {{ Form::text('birthday','',['class' => 'form-control','id'=>'birthday']) }}
+                                                {{ Form::text('birthday','',['class' => 'form-control','id'=>'birthday', 'required']) }}
                                             </td>
                                         </tr>
                                     </table>
@@ -152,7 +152,7 @@
                                         <tr>
                                             <td><label>آدرس منزل</label></td>
                                             <td>
-                                                {{ Form::text('homeAddress','',['class' => 'form-control']) }}
+                                                {{ Form::text('homeAddress','',['class' => 'form-control', 'required']) }}
                                             </td>
                                         </tr>
                                     </table>
@@ -162,7 +162,7 @@
                                         <tr>
                                             <td><label>تلفن ثابت منزل</label></td>
                                             <td>
-                                                {{ Form::tel('homePhone','',['class' => 'form-control']) }}
+                                                {{ Form::tel('homePhone','',['class' => 'form-control', 'required']) }}
                                             </td>
                                         </tr>
                                     </table>
@@ -174,7 +174,7 @@
                                         <tr>
                                             <td><label>آدرس محل کار پدر</label></td>
                                             <td>
-                                                {{ Form::text('fatherWorkAddress','',['class' => 'form-control']) }}
+                                                {{ Form::text('fatherWorkAddress','',['class' => 'form-control', 'required']) }}
                                             </td>
                                         </tr>
                                     </table>
@@ -184,7 +184,7 @@
                                         <tr>
                                             <td><label>شماره همراه هنرجو</label></td>
                                             <td>
-                                                {{ Form::tel('studentPhone','',['class' => 'form-control']) }}
+                                                {{ Form::tel('studentPhone','',['class' => 'form-control', 'required']) }}
                                             </td>
                                         </tr>
                                     </table>
@@ -196,7 +196,7 @@
                                         <tr>
                                             <td><label>شماره بیمه ورزشی</label></td>
                                             <td>
-                                                {{ Form::text('sportsInsuranceNumber','',['class' => 'form-control']) }}
+                                                {{ Form::text('sportsInsuranceNumber','',['class' => 'form-control', 'required']) }}
                                             </td>
                                         </tr>
                                     </table>
@@ -214,7 +214,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-6">
-                                    {{ Form::text('sickness','',['class' => 'form-control']) }}
+                                    {{ Form::text('sickness','',['class' => 'form-control', 'required']) }}
                                 </div>
                                 <div class="col-sm-6">
                                     <label>در صورت داشتن بیماری نوع آن را ذکر کنید</label>
@@ -231,17 +231,17 @@
                                        <a href="" class="btn btn-default">
                                            <span style="position: absolute ; text-align: center ; width: 70px ; float: right ; margin-right: -30px">
                                                سابقه بیمه</span>
-                                           {{ Form::file('image1' ,['style'=>'opacity:0 ; width:70px']) }}
+                                           {{ Form::file('image1' ,['style'=>'opacity:0 ; width:70px', 'required']) }}
                                        </a>
                                     <a href="" class="btn btn-default">
                                         <span style="position: absolute ; text-align: center ; width: 70px ; float: right ; margin-right: -30px">
-                                            سابقه بیمه</span>
-                                        {{ Form::file('image2' ,['style'=>'opacity:0 ; width:70px']) }}
+                                            کارت ملی</span>
+                                        {{ Form::file('image2' ,['style'=>'opacity:0 ; width:70px', 'required']) }}
                                     </a>
                                     <a href="" class="btn btn-default">
-                                        <span style="position: absolute ; text-align: center ; width: 70px ; float: right ; margin-right: -30px">سابقه بیمه
+                                        <span style="position: absolute ; text-align: center ; width: 70px ; float: right ; margin-right: -30px">شناسنامه
                                         </span>
-                                        {{ Form::file('image3' ,['style'=>'opacity:0 ; width:70px']) }}
+                                        {{ Form::file('image3' ,['style'=>'opacity:0 ; width:70px', 'required']) }}
                                     </a>
 
 
@@ -279,13 +279,13 @@
                         <tr>
                             <td><label>شماره همراه هنرجو</label></td>
                             <td>
-                                {{ Form::tel('studentPhone','',['class' => 'form-control']) }}
+                                {{ Form::tel('studentPhone','',['class' => 'form-control', 'required']) }}
                             </td>
                         </tr>
                         <tr >
                             <td><br/><label>شماره ملی</label></td>
                             <td>
-                                {{ Form::text('nationalCode','',['class' => 'form-control']) }}
+                                {{ Form::text('nationalCode','',['class' => 'form-control', 'required']) }}
                             </td>
                         </tr>
                     </table>
