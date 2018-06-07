@@ -29,7 +29,7 @@
                                     </video>
                                     <script src="https://vjs.zencdn.net/6.9.0/video.js"></script>
                                 @endif
-                                    <a href="#" class="tag">مشاهده</a>
+                                    <a href="{{ url('/') }}/learn/details/{{$learn->id}}" class="tag">مشاهده</a>
                             </figure>
                             <div class="fh5co-property-innter">
                                 <h3><a href="#">{{$learn->name}}</a></h3>

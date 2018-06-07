@@ -4,8 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Notification;
+use Mockery\Matcher\Not;
+
 class NotificationController extends Controller
 {
+    public function notDetails($not_id){
+        session_start();
+        if (isset($_SESSION["username"]))
+            $username=$_SESSION["username"];
+        else
+            $username="null";
+        $nots = Notification::where("id",$not_id)->get();
+        return view("user.notiDetails")->with("username",$username)->with("nots",$nots);
+    }
     public function addNotification(Request $request){
         session_start();
         if (isset($_SESSION["admin_id"])){

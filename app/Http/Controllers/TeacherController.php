@@ -7,6 +7,16 @@ use Illuminate\Http\Request;
 use App\Teacher;
 class TeacherController extends Controller
 {
+    public function teacherDetails($teacher_id){
+        session_start();
+        if (isset($_SESSION["username"]))
+            $username=$_SESSION["username"];
+        else
+            $username="null";
+        $teachers = Teacher::where("id",$teacher_id)->get();
+        $teacherCvs = Cvteacher::where("teacher_id",$teacher_id)->get();
+        return view("user.tcvDetails")->with("username",$username)->with("teachers",$teachers)->with("teacherCvs",$teacherCvs);
+    }
     public function addTeacher(Request $request){
         session_start();
         if (isset($_SESSION["admin_id"])){

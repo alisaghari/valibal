@@ -16,11 +16,11 @@
                         <div class="fh5co-property">
                             <figure>
                                 <img src="{{ url('/') }}/content/notifications/{{$notification->id}}.{{$notification->img}}" alt="Free Website Templates FreeHTML5.co" class="img-responsive">
-                                    <a href="#" class="tag">جزئیات</a>
+                                    <a href="{{ url('/') }}/not/details/{{$notification->id}}" class="tag">جزئیات</a>
                             </figure>
                             <div class="fh5co-property-innter">
                                 <h3><a href="#">{{$notification->name}}</a></h3>
-                                <p>{!!  $notification->description!!}</p>
+                                <p>{!!  $notification->short_description!!}</p>
                             </div>
                         </div>
                     </div>

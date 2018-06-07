@@ -6,6 +6,15 @@ use Illuminate\Http\Request;
 use App\Learn;
 class LearnController extends Controller
 {
+    public function learnDetails($learn_id){
+        session_start();
+        if (isset($_SESSION["username"]))
+            $username=$_SESSION["username"];
+        else
+            $username="null";
+        $Learns = Learn::where("id",$learn_id)->get();
+        return view("user.learnDetails")->with("username",$username)->with("Learns",$Learns);
+    }
     public function addLearn(Request $request){
         session_start();
         if (isset($_SESSION["admin_id"])){

@@ -103,7 +103,7 @@ Route::post('adminSecret/teacher/cv/add', 'TeacherController@addTeachercv');
 Route::get('adminSecret/teachercv/list', 'TeacherController@teacherCvList');
 Route::get('adminSecret/teachercv/list/{id}', 'TeacherController@teacherCvListId');
 Route::get('adminSecret/teacher/cv/delete/{id}', 'TeacherController@deleteTeacherCv');
-
+Route::get('/teacher/details/{teacher_id}', 'TeacherController@teacherDetails');
 Route::get('/adminSecret/talent', function () {
     session_start();
     if (isset($_SESSION["admin_id"])){
@@ -142,7 +142,7 @@ Route::get('/adminSecret/notification', function () {
 Route::post('adminSecret/notification/add', 'notificationController@addNotification');
 Route::get('adminSecret/notification/list', 'notificationController@notificationList');
 Route::get('adminSecret/notification/delete/{id}', 'notificationController@deleteNotification');
-
+Route::get('/not/details/{not_id}', 'notificationController@notDetails');
 Route::get('/adminSecret/learn', function () {
     session_start();
     if (isset($_SESSION["admin_id"])){
@@ -156,3 +156,4 @@ Route::get('/adminSecret/learn', function () {
 Route::post('adminSecret/learn/add', 'LearnController@addlearn');
 Route::get('adminSecret/learn/list', 'LearnController@learnList');
 Route::get('adminSecret/learn/delete/{id}', 'LearnController@deletelearn');
+Route::get('/learn/details/{learn_id}', 'LearnController@learnDetails');

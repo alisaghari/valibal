@@ -20,7 +20,7 @@
                         </figure>
                         <h3>{{$teacher->name}}</h3>
                         <p>{!!  $teacher->description!!}</p>
-                        <p><a href="#" class="btn btn-primary btn-outline">رزومه من</a></p>
+                        <p><a href="teacher/details/{{$teacher->id}}" class="btn btn-primary btn-outline"> مشاهده رزومه </a></p>
                     </div>
                 </div>
                 @endforeach

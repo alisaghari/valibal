@@ -174,6 +174,12 @@
 
 
     @yield("content")
+        <style>
+
+                .col-md-push-1 {
+                     left:0px !important;
+                }
+        </style>
         <footer id="fh5co-footer" role="contentinfo">
 
             <div class="container">
