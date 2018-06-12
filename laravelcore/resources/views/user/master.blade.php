@@ -13,6 +13,9 @@
     <meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
     <meta name="author" content="FreeHTML5.co" />
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <style>
         h1,h2,h3,h4,h5,h6,a,li,span:not(.vjs-icon-placeholder),button,p,label,input,td{
             font-family: "b Roya", Arial, Helvetica, sans-serif !important;
@@ -25,7 +28,7 @@
             float: right;
         }
         nav ul li a{
-            font-size: 20px !important;
+            font-size:18px !important;
         }
         nav,h3{
             direction: rtl;
@@ -85,6 +88,10 @@
         p,h1,h2,h3,h4,h5,h6{
             direction: rtl;
             text-align: right;
+        }
+        #fh5co-footer .float {
+            float: left;
+            margin-right: 0px !important;
         }
     </style>
     <!--
@@ -147,14 +154,13 @@
     <script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
 </head>
 <body>
-    <body>
     @include('user.register')
     <div id="fh5co-page">
         <header id="fh5co-header" role="banner" style="z-index: 9999 !important;">
             <div class="container">
                 <div class="row">
                     <div class="header-inner">
-                        <h1 style="font-size: 20px !important; padding: 0px ; margin: 0px ; margin-top: 25px"><a href="tel://123456789"><i class="icon-phone"></i> +1 123 456 789</a></h1>
+                        <h1 style="font-size: 20px !important; padding: 0px ; margin: 0px ; margin-top: 25px" class="change"><a class="change" href="tel://123456789"><i class="icon-phone change"></i> +1 123 456 789</a></h1>
                         @include('user.menu')
                     </div>
                 </div>
@@ -184,34 +190,31 @@
 
             <div class="container">
                 <div class="col-md-3 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0">
-                    <h2 style="font-weight: bolder ; text-align: right ; color: white ; font-size: 18px">نماد اعتماد</h2>
-                    <center><img src="{{ url('/') }}/img/enamd.png"></center>
+                    <h2 style="font-weight: bolder ; text-align: right ; color: white ; font-size: 22px">نماد اعتماد</h2>
+                    <center><img src="img/enamd.png" height="169px"></center>
                 </div>
                 <div class="col-md-3 col-md-push-1 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0">
-                    <h2 style="font-weight: bolder ; text-align: right ; color: white ; font-size: 18px">لینک های مهم </h2>
+                    <h2 style="font-weight: bolder ; text-align: right ; color: white ; font-size: 22px">درباره آکادمی آینده سازان </h2>
+                    <p style="direction: rtl ; text-align: justify ; font-size: 20px">
+                        از آنجایی که طراحان عموما نویسنده متن نیستند و وظیفه رعایت حق تکثیر متون را ندارند و در همان حال کار آنها به نوعی وابسته به متن می‌باشد آنها با استفاده از محتویات ساختگی، صفحه گرافیکی خود را صفحه‌آرایی می‌کنند تا مرحله طراحی و صفحه‌بندی را به پایان برند.
+                    </p>
+                </div>
+                <div class="col-md-3 col-md-push-1 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0">
+                    <h2 style="font-weight: bolder ; text-align: right ; color: white ; font-size: 22px">معرفی</h2>
 
                     <ul class="float" style="text-align: right ; float: right">
-                        <li><a href="#">فدراسیون والیبال ایران</a></li>
-                        <li><a href="#">آکادمی اختصاصی والیبال</a></li>
-                        <li><a href="#">اطلاع رسانی جامع والیبال</a></li>
+                        <li><a style="font-size: 20px" href="{{url("/teachers")}}">با اساتید ما آشنا شوید</a></li>
+                        <li><a style="font-size: 20px"  href="{{url("/galleries")}}">گالری تصاویر</a></li>
+                        <li><a style="font-size: 20px"  href="{{url("/ContactUs")}}">ارتباط باما</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3 col-md-push-1 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0">
-                    <h2 style="font-weight: bolder ; text-align: right ; color: white ; font-size: 18px">لینک های مهم </h2>
+                    <h2 style="font-weight: bolder ; text-align: right ; color: white ; font-size: 22px">لینک های مهم </h2>
 
                     <ul class="float" style="text-align: right ; float: right">
-                        <li><a href="#">فدراسیون والیبال ایران</a></li>
-                        <li><a href="#">آکادمی اختصاصی والیبال</a></li>
-                        <li><a href="#">اطلاع رسانی جامع والیبال</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-3 col-md-push-1 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0">
-                    <h2 style="font-weight: bolder ; text-align: right ; color: white ; font-size: 18px">لینک های مهم </h2>
-
-                    <ul class="float" style="text-align: right ; float: right">
-                        <li><a href="#">فدراسیون والیبال ایران</a></li>
-                        <li><a href="#">آکادمی اختصاصی والیبال</a></li>
-                        <li><a href="#">اطلاع رسانی جامع والیبال</a></li>
+                        <li><a style="font-size: 20px"  href="{{url("/learns")}}">آموزش ها</a></li>
+                        <li><a style="font-size: 20px"  href="{{url("/noti")}}">اعلامیه ها</a></li>
+                        <li><a style="font-size: 20px"  href="{{url("/products")}}">دوره های آکادمی</a></li>
                     </ul>
                 </div>
                 <div class="col-md-12 col-md-push-1 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0">
@@ -225,7 +228,7 @@
 
 
                 <div class="col-md-12 fh5co-copyright text-center">
-                    <p>کلیه حقوق این وبسایت متعلق به یجای خوبی است</p>
+                    <p>کلیه حقوق این وبسایت متعلق به آکادمی آینده سازان است</p>
                 </div>
 
             </div>
@@ -255,6 +258,6 @@
 <!-- MAIN JS -->
 <script src="{{ url('/') }}/js/main.js"></script>
 
-</body>
+    </body>
 </html>
 

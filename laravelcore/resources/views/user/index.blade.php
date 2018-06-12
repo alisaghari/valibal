@@ -8,14 +8,27 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>آکادمی والیبال آینده سازان</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>Simple Lightbox - Responsive touch friendly Image lightbox</title>
+    <link href='http://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
+    <link href='{{ url('/') }}/dist/simplelightbox.min.css' rel='stylesheet' type='text/css'>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Free HTML5 Website Template by FreeHTML5.co" />
     <meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
     <meta name="author" content="FreeHTML5.co" />
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <style>
         h1,h2,h3,h4,h5,h6,a,li,span:not(.vjs-icon-placeholder),button,p,label,input,td{
             font-family: "b Roya", Arial, Helvetica, sans-serif !important;
 
+        }
+        #fh5co-footer .float {
+            float: left;
+            margin-right: 0px !important;
         }
         span,label{
             direction: rtl;
@@ -24,7 +37,7 @@
             float: right;
         }
         nav ul li a{
-            font-size:20px !important;
+            font-size:18px !important;
         }
         nav,h3{
             direction: rtl;
@@ -123,6 +136,7 @@
 
     <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
     <script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+
 </head>
 <body>
 @include('user.register')
@@ -131,7 +145,7 @@
         <div class="container">
             <div class="row">
                 <div class="header-inner">
-                    <h1 style="font-size: 20px !important; padding: 0px ; margin: 0px ; margin-top: 25px"><a href="tel://123456789"><i class="icon-phone"></i> +1 123 456 789</a></h1>
+                    <h1 style="font-size: 20px !important; padding: 0px ; margin: 0px ; margin-top: 25px" class="change"><a class="change" href="tel://123456789"><i class="icon-phone change" ></i> +1 123 456 789</a></h1>
                     @include('user.menu')
                 </div>
             </div>
@@ -225,7 +239,7 @@
         </div>
     </div>
 
-    <div id="best-deal"style="background-image: url('img/bgp1.png') ; padding-top: 50px ;background-size: cover ; padding-bottom: 30px !important;">
+    <div id="best-deal" style="background-image: url('img/bgp1.png') ; padding-top: 50px ;background-size: cover ; padding-bottom: 30px !important;">
         <h1 style="text-align: center ; font-weight: bolder ; color: white">
             آلبوم تصاویر مسابقات برگزار شده
         </h1>
@@ -235,19 +249,98 @@
         padding: 15px;
     }
 </style>
-            <?php $i=0 ?>
+
+    <?php $i=0 ?>
             @foreach($galleries as $gallery)
                 <?php $i++ ?>
                 @if($i==1 || $i==6 || $i==11)
                         <div class="row">
-            <div class="col-md-2 col-md-offset-1 paddinggallery"><img src="{{ url('/') }}/content/gallery/{{$gallery->id}}.{{$gallery->img}}" width="100%"></div>
+            <div class="col-md-2 col-md-offset-1 paddinggallery">  <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox"><img src="{{ url('/') }}/content/gallery/{{$gallery->id}}.{{$gallery->img}}" width="100%"></a></div>
                     @else
-            <div class="col-md-2 paddinggallery"><img src="{{ url('/') }}/content/gallery/{{$gallery->id}}.{{$gallery->img}}" width="100%"></div>
+                                <div class="col-md-2 paddinggallery">  <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox"><img src="{{ url('/') }}/content/gallery/{{$gallery->id}}.{{$gallery->img}}" width="100%"></a></div>
                     @endif
                             @if($i==0 || $i==5 || $i==10)
                         </div>
                             @endif
             @endforeach
+        <style>
+
+            #lightbox .modal-content {
+                display: inline-block;
+                text-align: center;
+            }
+
+            #lightbox .close {
+                opacity: 1;
+                color: rgb(255, 255, 255);
+                background-color: rgb(25, 25, 25);
+                padding: 5px 8px;
+                border-radius: 30px;
+                border: 2px solid rgb(255, 255, 255);
+                position: absolute;
+                top: -15px;
+                right: -55px;
+
+                z-index:1032;
+            }
+            .modal-backdrop {
+                position: fixed;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: 0 !important;
+                background-color: #000;
+            }
+            .thumbnail {
+                display: block !important;
+                padding: 0px !important;
+                margin-bottom: 0px !important;
+                line-height: 0 !important;
+                background-color: #fff !important;
+                border: 0px solid #ddd !important;
+                border-radius: 0px !important;
+                -webkit-transition: all .2s ease-in-out !important;
+                transition: all .2s ease-in-out !important;
+            }
+        </style>
+        <script>
+            $(document).ready(function() {
+                var $lightbox = $('#lightbox');
+
+                $('[data-target="#lightbox"]').on('click', function(event) {
+                    var $img = $(this).find('img'),
+                        src = $img.attr('src'),
+                        alt = $img.attr('alt'),
+                        css = {
+                            'maxWidth': $(window).width() - 100,
+                            'maxHeight': $(window).height() - 100
+                        };
+
+                    $lightbox.find('.close').addClass('hidden');
+                    $lightbox.find('img').attr('src', src);
+                    $lightbox.find('img').attr('alt', alt);
+                    $lightbox.find('img').css(css);
+                });
+
+                $lightbox.on('shown.bs.modal', function (e) {
+                    var $img = $lightbox.find('img');
+
+                    $lightbox.find('.modal-dialog').css({'width': $img.width()});
+                    $lightbox.find('.close').removeClass('hidden');
+                });
+            });
+        </script>
+        <div id="lightbox" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog" style=" z-index: 9999 !important;">
+                <button type="button" class="close hidden" data-dismiss="modal" aria-hidden="true">×</button>
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <img src="" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
     </div>
@@ -466,31 +559,31 @@
 
         <div class="container">
             <div class="col-md-3 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0">
-                <h2 style="font-weight: bolder ; text-align: right ; color: white ; font-size: 18px">نماد اعتماد</h2>
+                <h2 style="font-weight: bolder ; text-align: right ; color: white ; font-size: 22px">نماد اعتماد</h2>
                 <center><img src="img/enamd.png" height="169px"></center>
             </div>
             <div class="col-md-3 col-md-push-1 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0">
-                <h2 style="font-weight: bolder ; text-align: right ; color: white ; font-size: 18px">درباره آکادمی آینده سازان </h2>
-                <p style="direction: rtl ; text-align: justify">
+                <h2 style="font-weight: bolder ; text-align: right ; color: white ; font-size: 22px">درباره آکادمی آینده سازان </h2>
+                <p style="direction: rtl ; text-align: justify ; font-size: 20px">
                     از آنجایی که طراحان عموما نویسنده متن نیستند و وظیفه رعایت حق تکثیر متون را ندارند و در همان حال کار آنها به نوعی وابسته به متن می‌باشد آنها با استفاده از محتویات ساختگی، صفحه گرافیکی خود را صفحه‌آرایی می‌کنند تا مرحله طراحی و صفحه‌بندی را به پایان برند.
                 </p>
             </div>
             <div class="col-md-3 col-md-push-1 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0">
-                <h2 style="font-weight: bolder ; text-align: right ; color: white ; font-size: 18px">معرفی</h2>
+                <h2 style="font-weight: bolder ; text-align: right ; color: white ; font-size: 22px">معرفی</h2>
 
                 <ul class="float" style="text-align: right ; float: right">
-                    <li><a href="{{url("/teachers")}}">با اساتید ما آشنا شوید</a></li>
-                    <li><a href="{{url("/galleries")}}">گالری تصاویر</a></li>
-                    <li><a href="{{url("/ContactUs")}}">ارتباط باما</a></li>
+                    <li><a style="font-size: 20px" href="{{url("/teachers")}}">با اساتید ما آشنا شوید</a></li>
+                    <li><a style="font-size: 20px"  href="{{url("/galleries")}}">گالری تصاویر</a></li>
+                    <li><a style="font-size: 20px"  href="{{url("/ContactUs")}}">ارتباط باما</a></li>
                 </ul>
             </div>
             <div class="col-md-3 col-md-push-1 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0">
-                <h2 style="font-weight: bolder ; text-align: right ; color: white ; font-size: 18px">لینک های مهم </h2>
+                <h2 style="font-weight: bolder ; text-align: right ; color: white ; font-size: 22px">لینک های مهم </h2>
 
                 <ul class="float" style="text-align: right ; float: right">
-                    <li><a href="{{url("/learns")}}">آموزش ها</a></li>
-                    <li><a href="{{url("/noti")}}">اعلامیه ها</a></li>
-                    <li><a href="{{url("/products")}}">دوره های آکادمی</a></li>
+                    <li><a style="font-size: 20px"  href="{{url("/learns")}}">آموزش ها</a></li>
+                    <li><a style="font-size: 20px"  href="{{url("/noti")}}">اعلامیه ها</a></li>
+                    <li><a style="font-size: 20px"  href="{{url("/products")}}">دوره های آکادمی</a></li>
                 </ul>
             </div>
             <div class="col-md-12 col-md-push-1 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0">
@@ -504,7 +597,7 @@
 
 
             <div class="col-md-12 fh5co-copyright text-center">
-                <p>کلیه حقوق این وبسایت متعلق به یجای خوبی است</p>
+                <p>کلیه حقوق این وبسایت متعلق به آکادمی آینده سازان است</p>
             </div>
 
         </div>
@@ -520,19 +613,18 @@
 
 
 <!-- jQuery -->
-<script src="js/jquery.min.js"></script>
+<script src="{{url("/")}}/js/jquery.min.js"></script>
 <!-- jQuery Easing -->
-<script src="js/jquery.easing.1.3.js"></script>
+<script src="{{url("/")}}/js/jquery.easing.1.3.js"></script>
 <!-- Bootstrap -->
-<script src="js/bootstrap.min.js"></script>
+<script src="{{url("/")}}/js/bootstrap.min.js"></script>
 <!-- Waypoints -->
-<script src="js/jquery.waypoints.min.js"></script>
+<script src="{{url("/")}}/js/jquery.waypoints.min.js"></script>
 <!-- Flexslider -->
-<script src="js/jquery.flexslider-min.js"></script>
+<script src="{{url("/")}}/js/jquery.flexslider-min.js"></script>
 
 <!-- MAIN JS -->
-<script src="js/main.js"></script>
-
+<script src="{{url("/")}}/js/main.js"></script>
 </body>
 </html>
 
