@@ -28,14 +28,7 @@ foreach ($result as $cart){
     $amount+= $cart["price"];
 }
 
-$sql = "UPDATE carts SET orderId='$_POST[PayOrderId]' WHERE user_id=$_SESSION[user_id]";
 
-if ($conn->query($sql) === TRUE) {
-    echo "Record updated successfully";
-} else {
-    echo "Error updating record: " . $conn->error;
-}
-$conn->close();
 
 
 ///amount
@@ -50,6 +43,14 @@ if($_POST['action'] == 'pay') {
     $result = send($api, $amount, $redirect, $factorNumber);
     $result = json_decode($result);
     if ($result->status) {
+        $sql = "UPDATE carts SET orderId='$result->transId' WHERE user_id=$_SESSION[user_id]";
+
+        if ($conn->query($sql) === TRUE) {
+
+        } else {
+
+        }
+
         $go = "https://pay.ir/payment/gateway/$result->transId";
         header("Location: $go");
     } else {
@@ -57,3 +58,5 @@ if($_POST['action'] == 'pay') {
     }
     //
 }
+
+$conn->close();

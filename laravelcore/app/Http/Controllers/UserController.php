@@ -186,7 +186,7 @@ if(isset($filei3))
     }
     public function productCartView(){
         session_start();
-        $carts = Cart::join("products","carts.product_id","=","products.id")->where("carts.user_id",$_SESSION["user_id"])->get(['carts.id AS cart_id', 'products.*']);
+        $carts = Cart::join("products","carts.product_id","=","products.id")->where("carts.user_id",$_SESSION["user_id"])->where("carts.verify","!=","1")->get(['carts.id AS cart_id', 'products.*']);
         $username=$_SESSION["username"];
         $user_id=$_SESSION["user_id"];
         return view('user.cart')->with("carts",$carts)->with("username",$username)->with("user_id",$user_id);
