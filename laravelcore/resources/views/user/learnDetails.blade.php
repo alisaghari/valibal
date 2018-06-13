@@ -193,6 +193,7 @@
                             @endif
                             <div class="details col-md-12" style="margin-top: 30px">
                                 <p class="product-description">{!!  $learn->description!!}</p>
+                                <p class="product-description">{!!  $learn->content!!}</p>
                             </div>
                         </div>
                     </div>
