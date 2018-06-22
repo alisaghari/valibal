@@ -11,7 +11,14 @@ $api = 'c30ef1e97be400d90fcf6239cd8a5248';
 $transId = $_POST['transId'];
 $result = verify($api,$transId);
 $result = json_decode($result);
-echo $result->errorMessage;
+echo "
+        <html>
+<body style='background-color: #69221e'>
+<h3 style='color: #ffffff;text-align: center ; padding-top: 170px'>$result->errorMessage</h3>
+<a href='http://v-ayandeh.ir/product/cart/view'> بازگشت </a>
+</body>
+</html>
+       ";
 if ($result->status==1){
     $servername = "localhost";
     $username = "vayandeh_vdb";
@@ -27,11 +34,26 @@ if ($result->status==1){
     $sql = "UPDATE carts SET verify='1' WHERE orderId=$transId)";
 
     if ($conn->query($sql) === TRUE) {
-        echo "با موفقیت سفارش شما ثبت شد";
+        echo "
+        <html>
+<body style='background-color: #1e7e34'>
+<h3 style='color: #ffffff;text-align: center ; padding-top: 170px'> با موفقیت سفارش شما ثبت شد</h3>
+<a href='http://v-ayandeh.ir/product/cart/view'> بازگشت </a>
+</body>
+</html>
+       ";
     } else {
-
+        echo "
+        <html>
+<body style='background-color: #69221e'>
+<h3 style='color: #ffffff;text-align: center ; padding-top: 170px'>سفارش نا موفق</h3>
+<a href='http://v-ayandeh.ir/product/cart/view'> بازگشت </a>
+</body>
+</html>
+       ";
     }
     $conn->close();
 }
 
+?>
 

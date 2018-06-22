@@ -73,6 +73,9 @@ Route::get('adminSecret/product/user/attendance/{id}', 'ProductController@Produc
 Route::get('adminSecret/product/delete/{id}', 'ProductController@deleteProduct');
 Route::get('adminSecret/product/program/{id}', 'ProductController@ProductProgram');
 Route::post('adminSecret/product/program/add', 'ProductController@ProductProgramAdd');
+Route::post('adminSecret/product/program/add/2', 'ProductController@ProductProgramAdd2');
+Route::post('adminSecret/product/program/add/3', 'ProductController@ProductProgramAdd3');
+Route::post('adminSecret/product/program/add/4', 'ProductController@ProductProgramAdd4');
 Route::get('/adminSecret/class', function () {
     session_start();
     if (isset($_SESSION["admin_id"])){
