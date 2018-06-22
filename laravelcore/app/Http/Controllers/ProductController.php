@@ -16,9 +16,12 @@ class ProductController extends Controller
             $username=$_SESSION["username"];
         else
             $username="null";
-        $Programs = Program::where("product_id",$product_id)->get();
+        $Programs  = Program::where("product_id",$product_id)->where("week","1")->get();
+        $Programs2 = Program::where("product_id",$product_id)->where("week","2")->get();
+        $Programs3 = Program::where("product_id",$product_id)->where("week","3")->get();
+        $Programs4 = Program::where("product_id",$product_id)->where("week","4")->get();
         $Products = Product::where("id",$product_id)->get();
-        return view("user.productDetails")->with("username",$username)->with("Products",$Products)->with("Programs",$Programs);
+        return view("user.productDetails")->with("username",$username)->with("Products",$Products)->with("Programs",$Programs)->with("Programs2",$Programs2)->with("Programs3",$Programs3)->with("Programs4",$Programs4);
     }
     public function addProduct(Request $request){
         session_start();
